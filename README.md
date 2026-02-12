@@ -33,7 +33,7 @@ sudo -u postgres psql -f plants.sql
 ```
 
 
-## systemd
+## systemd activation
 
 ```
 sudo cp plants.service /etc/systemd/system/
