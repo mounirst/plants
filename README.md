@@ -2,9 +2,9 @@
 
 ## hardware
 
-* Raspberry pi zero 2 WH
-* DFRobot DHT on gio 4
-* miflora compatible - bluetooth scan fr mac
+* any Raspberry
+* DFRobot DHT22 on gpio 4
+* miflora compatible - bluetooth scan for mac
 
 ## system packages
 
