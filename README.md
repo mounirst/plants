@@ -42,3 +42,11 @@ sudo systemctl enable plants.service
 sudo systemctl start plants.service
 ```
 
+## extensions
+
+### cam capture
+
+### metadata dashboard
+
+
+
