@@ -2,8 +2,8 @@
 
 ## hardware
 
-* any Raspberry
-* DFRobot DHT22 on gpio 4
+* Raspberry pi
+* DHT22/AM2302 on gpio - requires resistor if not embedded
 * miflora compatible - bluetooth scan for mac
 
 ## system packages
