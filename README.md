@@ -6,12 +6,21 @@
 * DHT22/AM2302 on gpio - requires resistor if not embedded
 * miflora compatible - bluetooth scan for mac
 
-## system packages
+## system packages / softwares
 
-apt install 
+Raspbberry os 14 - Trixie
+
+### python
+
+Comes with raspberry os
+
+### postgresql database
+```
+apt install postgresql
+```
+Influxdb possibly more performant
 
 ## populate
-
 ```
 mkdir plants
 cd plants
@@ -22,7 +31,7 @@ git clone https://github.com/mounirst/plants.git
 
 ```
 python -m venv venv
-source activate venv/bin/activate
+source venv/bin/activate
 pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora
 ```
 
@@ -42,11 +51,11 @@ sudo systemctl enable plants.service
 sudo systemctl start plants.service
 ```
 
-## extensions
+# extensions
 
-### cam capture
+## cam capture
 
-### metadata dashboard
+## metadata dashboard
 
 
 

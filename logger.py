@@ -5,8 +5,26 @@ import psycopg2
 from datetime import datetime
 import board
 import adafruit_dht
-from btlewrap import BluepyBackend
-from miflora.miflora_poller import MiFloraPoller, MI_CONDUCTIVITY, MI_BRIGHTNESS, MI_TEMPERATURE, MI_MOISTURE, MI_BATTERY
+
+# pour miflora
+import re
+
+from btlewrap import BluepyBackend, GatttoolBackend, PygattBackend, available_backends
+
+from miflora import miflora_scanner
+from miflora.miflora_poller import (
+    MI_BATTERY,
+    MI_CONDUCTIVITY,
+    MI_LIGHT,
+    MI_MOISTURE,
+    MI_TEMPERATURE,
+    MiFloraPoller,
+)
+# fin miflora
+
+
+# from btlewrap import BluepyBackend
+# from miflora.miflora_poller import MiFloraPoller, MI_CONDUCTIVITY, MI_BRIGHTNESS, MI_TEMPERATURE, MI_MOISTURE, MI_BATTERY
 
 # Charger la configuration
 config = configparser.ConfigParser()
