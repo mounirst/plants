@@ -22,4 +22,4 @@ CREATE TABLE capteurs (
 CREATE USER plants_user WITH PASSWORD 'votre_mot_de_passe';
 GRANT ALL PRIVILEGES ON DATABASE plants TO plants_user;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO plants_user;
-
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE capteurs_id_seq to plants_user;
