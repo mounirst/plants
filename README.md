@@ -32,7 +32,7 @@ git clone https://github.com/mounirst/plants.git
 ```
 python -m venv venv
 source venv/bin/activate
-pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora
+pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora bluepy
 ```
 
 ## db creation

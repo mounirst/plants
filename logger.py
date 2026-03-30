@@ -1,4 +1,4 @@
-#!/home/pi/plants/bin/python
+#!/home/pi/plants/venv/bin/python
 import time
 import configparser
 import psycopg2
@@ -40,11 +40,11 @@ db_config = {
 }
 
 # Paramètres des capteurs
-dht_gpio = int(config['sensors']['dht_gpio'])
+dht_gpio = config['sensors']['dht_gpio']
 mi_mac = config['sensors']['mi_mac']
 
 # Initialisation du capteur DHT22
-dht_device = adafruit_dht.DHT22(board.D{dht_gpio})
+dht_device = adafruit_dht.DHT22(board.D4)
 
 # Fonction pour calculer le DVP (Déficit de Pression de Vapeur)
 def calculate_vpd(temp, humidity):
@@ -57,7 +57,7 @@ def calculate_vpd(temp, humidity):
     ea = (humidity / 100) * es
     # Calcul du DVP
     vpd = es - ea
-    return vpd
+    return round(vpd,2)
 
 # Fonction pour insérer les données dans la base
 def insert_data(temp_dht, humidity_dht, temp_mi, moisture, light, conductivity, battery, vpd):
@@ -89,9 +89,10 @@ def main():
             poller = MiFloraPoller(mi_mac, BluepyBackend)
             temp_mi = poller.parameter_value(MI_TEMPERATURE)
             moisture = poller.parameter_value(MI_MOISTURE)
-            light = poller.parameter_value(MI_BRIGHTNESS)
+            light = poller.parameter_value(MI_LIGHT)
             conductivity = poller.parameter_value(MI_CONDUCTIVITY)
             battery = poller.parameter_value(MI_BATTERY)
+            print (temp_mi, moisture, light, conductivity, battery)
 
             # Insertion des données
             insert_data(temp_dht, humidity_dht, temp_mi, moisture, light, conductivity, battery, vpd)
