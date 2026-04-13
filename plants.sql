@@ -7,14 +7,14 @@ CREATE DATABASE plants;
 -- Création de la table
 CREATE TABLE capteurs (
     id SERIAL PRIMARY KEY,
-    timestamp TIMESTAMP NOT NULL,
-    temp_dht FLOAT,
-    humidity_dht FLOAT,
-    temp_mi FLOAT,
-    moisture INTEGER,
-    light INTEGER,
-    conductivity INTEGER,
-    battery INTEGER,
+    tsz TIMESTAMP with time zone NOT NULL,
+    tint FLOAT,
+    hrint FLOAT,
+    tpot FLOAT,
+    hrpot INTEGER,
+    lumiere INTEGER,
+    conductivite INTEGER,
+    batterie INTEGER,
     vpd FLOAT
 );
 
