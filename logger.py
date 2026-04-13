@@ -46,19 +46,6 @@ mi_mac = config['sensors']['mi_mac']
 # Initialisation du capteur DHT22
 dht_device = adafruit_dht.DHT22(board.D4)
 
-# Fonction pour calculer le DVP (Deficit de Pression de Vapeur)
-def calculate_vpd(temp, humidity):
-    # Constantes
-    a = 17.27
-    b = 237.7
-    # Calcul de la pression de vapeur saturante (es)
-    es = 0.6108 * (10 ** ((a * temp) / (b + temp)))
-    # Calcul de la pression de vapeur réelle (ea)
-    ea = (humidity / 100) * es
-    # Calcul du DVP
-    vpd = es - ea
-    return round(vpd,2)
-
 # Fonction pour insérer les données dans la base
 def insert_data(tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd):
     try:
