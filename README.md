@@ -10,6 +10,11 @@
 
 Raspbberry os 14 - Trixie
 
+### minimum system package
+```
+apt install vim
+```
+
 ### python
 
 Comes with raspberry os
