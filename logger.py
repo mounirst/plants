@@ -10,7 +10,6 @@ import adafruit_dht
 
 # pour miflora
 import re
-
 from btlewrap import BluepyBackend, GatttoolBackend, PygattBackend, available_backends
 
 from miflora import miflora_scanner
