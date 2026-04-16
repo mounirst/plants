@@ -10,6 +10,12 @@
 
 Raspbberry os 14 - Trixie
 
+You may want to turn off raspberry pi leds in greenhouse, add to /boot/firmware/config.txt:
+```
+dtparam=act_led_trigger=none
+dtparam=pwr_led_trigger=none
+```
+
 ### minimum system package
 ```
 apt install vim
