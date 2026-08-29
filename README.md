@@ -34,9 +34,8 @@ Influxdb possibly more performant
 
 ## populate
 ```
-mkdir plants
-cd plants
 git clone https://github.com/mounirst/plants.git
+cd plants
 ```
 
 ## python venv
@@ -56,7 +55,7 @@ sudo -u postgres psql -f plants.sql
 
 
 ## systemd activation
-Check file config.ini for customization.
+Check file config.ini for password and miflora mac address customization.
 
 ```
 sudo cp plants.service /etc/systemd/system/
@@ -65,9 +64,11 @@ sudo systemctl enable plants.service
 sudo systemctl start plants.service
 ```
 
-# camera capture
-
+# Camera capture
+## Confirm camera operation
+## Capture script
 # Dashboard
-## grafana installation
+## Grafana installation
 https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
-## metadata dashboard
+## Metadata dashboard
+## Image link to capture
