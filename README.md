@@ -18,8 +18,8 @@ dtparam=pwr_led_trigger=none
 
 ### minimum system package
 ```
-sudo apt install locales-all
-sudo apt install vim
+sudo apt install locales-all swig vim
+sudo apt install libglib2.0-dev liblgpio-dev
 ```
 
 ### python
