@@ -18,7 +18,8 @@ dtparam=pwr_led_trigger=none
 
 ### minimum system package
 ```
-apt install vim
+sudo apt install locales-all
+sudo apt install vim
 ```
 
 ### python
@@ -27,7 +28,7 @@ Comes with raspberry os
 
 ### postgresql database
 ```
-apt install postgresql
+sudo apt install postgresql
 ```
 Influxdb possibly more performant
 
