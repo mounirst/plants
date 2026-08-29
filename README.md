@@ -65,11 +65,9 @@ sudo systemctl enable plants.service
 sudo systemctl start plants.service
 ```
 
-# extensions
+# camera capture
 
-## cam capture
-
+# Dashboard
+## grafana installation
+https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
 ## metadata dashboard
-
-
-
