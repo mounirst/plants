@@ -2,7 +2,7 @@
 
 ## hardware
 
-* Raspberry pi
+* Raspberry pi arm64 running 64 bits raspberry pi os
 * DHT22/AM2302 on gpio - requires resistor if not embedded
 * miflora compatible - bluetooth scan for mac
 
