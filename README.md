@@ -48,6 +48,7 @@ pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora bluepy
 ```
 
 ## db creation
+Check file plants.sql for customization.
 
 ```
 sudo -u postgres psql -f plants.sql
@@ -55,6 +56,7 @@ sudo -u postgres psql -f plants.sql
 
 
 ## systemd activation
+Check file config.ini for customization.
 
 ```
 sudo cp plants.service /etc/systemd/system/
