@@ -8,7 +8,7 @@
 
 ## system packages / softwares
 
-Raspbberry os 14 - Trixie
+Working on Raspbberry os 13 - bookworm or 14 - Trixie
 
 You may want to turn off raspberry pi leds in greenhouse, add to /boot/firmware/config.txt:
 ```
