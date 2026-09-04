@@ -52,6 +52,16 @@ mi_mac2 = config['sensors']['mi_mac2']
 # Initialisation du capteur DHT22
 dht_device = adafruit_dht.DHT22(board.D4)
 
+# Demarrage
+print("Debug: ", debug)
+if nbmi == 1:
+    print("Un capteur")
+elif nbmi == 2:
+    print("Deux capteurs")
+else:
+    print("Configuration inconnue")
+    exit -1
+
 # Fonction pour insérer les données dans la base
 def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd):
     try:
