@@ -109,9 +109,9 @@ def main():
                 lum2 = poller2.parameter_value(MI_LIGHT)
                 conduct2 = poller2.parameter_value(MI_CONDUCTIVITY)
                 batt2 = poller2.parameter_value(MI_BATTERY)
-                if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
             else:
                 (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0)
+            if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
 
             # Insertion des données
             insert_data(maintenant, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
@@ -125,4 +125,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
