@@ -10,11 +10,16 @@ CREATE TABLE capteurs (
     tsz TIMESTAMP with time zone NOT NULL,
     tint FLOAT,
     hrint FLOAT,
-    tpot FLOAT,
-    hrpot INTEGER,
-    lumiere INTEGER,
-    conductivite INTEGER,
-    batterie INTEGER,
+    tpot1 FLOAT,
+    hrpot1 INTEGER,
+    lum1 INTEGER,
+    conduct1 INTEGER,
+    batt1 INTEGER,
+    tpot2 FLOAT,
+    hrpot2 INTEGER,
+    lum2 INTEGER,
+    conduct2 INTEGER,
+    batt2 INTEGER,
     vpd FLOAT
 );
 
