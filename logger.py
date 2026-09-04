@@ -41,7 +41,9 @@ db_config = {
 
 # Paramètres des capteurs
 dht_gpio = config['sensors']['dht_gpio']
-mi_mac = config['sensors']['mi_mac']
+nbmi = config['sensors']['nbmi']
+mi_mac1 = config['sensors']['mi_mac1']
+mi_mac2 = config['sensors']['mi_mac2']
 
 # Initialisation du capteur DHT22
 dht_device = adafruit_dht.DHT22(board.D4)
