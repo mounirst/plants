@@ -60,7 +60,7 @@ elif nbmi == 2:
     print("Deux capteurs")
 else:
     print("Configuration inconnue")
-    exit -1
+    exit(-1)
 
 # Fonction pour insérer les données dans la base
 def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd):
@@ -105,7 +105,7 @@ def main():
 
             # Lecture du capteur MiFlora1 toujours present
             poller1 = MiFloraPoller(mi_mac1, BluepyBackend)
-            tpot1 = poller1.parameter_value(MI_TEMPERATURE) - 0.8
+            tpot1 = poller1.parameter_value(MI_TEMPERATURE)
             hrpot1 = poller1.parameter_value(MI_MOISTURE)
             lum1 = poller1.parameter_value(MI_LIGHT)
             conduct1 = poller1.parameter_value(MI_CONDUCTIVITY)
@@ -114,7 +114,7 @@ def main():
 
             if nbmi == 2:
                 poller2 = MiFloraPoller(mi_mac2, BluepyBackend)
-                tpot2 = poller2.parameter_value(MI_TEMPERATURE) - 0.8
+                tpot2 = poller2.parameter_value(MI_TEMPERATURE)
                 hrpot2 = poller2.parameter_value(MI_MOISTURE)
                 lum2 = poller2.parameter_value(MI_LIGHT)
                 conduct2 = poller2.parameter_value(MI_CONDUCTIVITY)
