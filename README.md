@@ -49,7 +49,7 @@ cd plants
 ```
 python -m venv venv
 source venv/bin/activate
-pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora bluepy
+pip install psycopg2-binary adafruit-circuitpython-dht btlewrap miflora bluepy seuptools
 ```
 
 ## db creation

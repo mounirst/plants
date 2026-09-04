@@ -95,20 +95,20 @@ def main():
 
             # Lecture du capteur MiFlora1 toujours present
             poller1 = MiFloraPoller(mi_mac1, BluepyBackend)
-            tpot1 = poller.parameter_value(MI_TEMPERATURE) - 0.8
-            hrpot1 = poller.parameter_value(MI_MOISTURE)
-            lum1 = poller.parameter_value(MI_LIGHT)
-            conduct1 = poller.parameter_value(MI_CONDUCTIVITY)
-            batt1 = poller.parameter_value(MI_BATTERY)
+            tpot1 = poller1.parameter_value(MI_TEMPERATURE) - 0.8
+            hrpot1 = poller1.parameter_value(MI_MOISTURE)
+            lum1 = poller1.parameter_value(MI_LIGHT)
+            conduct1 = poller1.parameter_value(MI_CONDUCTIVITY)
+            batt1 = poller1.parameter_value(MI_BATTERY)
             if debug: print ("tpot1:", tpot1, "    hrpot1: ", hrpot1, "  lum1: ", lum1, "  conduct1: ", conduct1, "  batt1: ", batt1)
 
             if nbmi == 2:
                 poller2 = MiFloraPoller(mi_mac2, BluepyBackend)
-                tpot2 = poller.parameter_value(MI_TEMPERATURE) - 0.8
-                hrpot2 = poller.parameter_value(MI_MOISTURE)
-                lum2 = poller.parameter_value(MI_LIGHT)
-                conduct2 = poller.parameter_value(MI_CONDUCTIVITY)
-                batt2 = poller.parameter_value(MI_BATTERY)
+                tpot2 = poller2.parameter_value(MI_TEMPERATURE) - 0.8
+                hrpot2 = poller2.parameter_value(MI_MOISTURE)
+                lum2 = poller2.parameter_value(MI_LIGHT)
+                conduct2 = poller2.parameter_value(MI_CONDUCTIVITY)
+                batt2 = poller2.parameter_value(MI_BATTERY)
                 if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
             else:
                 (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0)
