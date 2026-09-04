@@ -24,6 +24,7 @@ from miflora.miflora_poller import (
 )
 # fin miflora
 
+# Par defaut
 debug=True
 
 # Charger la configuration
