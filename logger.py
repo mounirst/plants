@@ -32,7 +32,7 @@ config = configparser.ConfigParser()
 config.read('/home/pi/plants/config.ini')
 
 # Parametres generaux
-debug = config['general']['debug']
+debug = bool(config['general']['debug'])
 
 # Paramètres de la base de données
 db_config = {
@@ -45,7 +45,7 @@ db_config = {
 
 # Paramètres des capteurs
 dht_gpio = config['sensors']['dht_gpio']
-nbmi = config['sensors']['nbmi']
+nbmi = int(config['sensors']['nbmi'])
 mi_mac1 = config['sensors']['mi_mac1']
 mi_mac2 = config['sensors']['mi_mac2']
 
