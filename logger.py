@@ -58,7 +58,7 @@ def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, h
         conn = psycopg2.connect(**db_config)
         cursor = conn.cursor()
         query = """
-        INSERT INTO capteurs (tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd)
+        INSERT INTO capteurs (tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         cursor.execute(query, (tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd))
