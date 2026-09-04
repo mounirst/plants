@@ -30,6 +30,9 @@ debug=True
 config = configparser.ConfigParser()
 config.read('/home/pi/plants/config.ini')
 
+# Parametres generaux
+debug = config['general']['debug']
+
 # Paramètres de la base de données
 db_config = {
     'dbname': config['postgresql']['dbname'],
@@ -49,7 +52,7 @@ mi_mac2 = config['sensors']['mi_mac2']
 dht_device = adafruit_dht.DHT22(board.D4)
 
 # Fonction pour insérer les données dans la base
-def insert_data(tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd):
+def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd):
     try:
         conn = psycopg2.connect(**db_config)
         cursor = conn.cursor()
@@ -57,7 +60,7 @@ def insert_data(tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, 
         INSERT INTO capteurs (tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        cursor.execute(query, (tsz, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd))
+        cursor.execute(query, (tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd))
         conn.commit()
         cursor.close()
         conn.close()
@@ -89,17 +92,28 @@ def main():
             vpd = round(pvsatair * (1 - hrint/100) / 1000, 3)
             print("VPD: ", vpd)
 
-            # Lecture du capteur MiFlora
-            poller = MiFloraPoller(mi_mac, BluepyBackend)
-            tpot = poller.parameter_value(MI_TEMPERATURE) - 0.8
-            hrpot = poller.parameter_value(MI_MOISTURE)
-            lumiere = poller.parameter_value(MI_LIGHT)
-            conductivite = poller.parameter_value(MI_CONDUCTIVITY)
-            batterie = poller.parameter_value(MI_BATTERY)
-            if debug: print ("tpot", tpot, "    hrpot: ", hrpot, "  lumiere: ", lumiere, "  conductivite: ", conductivite, "  batterie: ", batterie)
+            # Lecture du capteur MiFlora1 toujours present
+            poller1 = MiFloraPoller(mi_mac1, BluepyBackend)
+            tpot1 = poller.parameter_value(MI_TEMPERATURE) - 0.8
+            hrpot1 = poller.parameter_value(MI_MOISTURE)
+            lum1 = poller.parameter_value(MI_LIGHT)
+            conduct1 = poller.parameter_value(MI_CONDUCTIVITY)
+            batt1 = poller.parameter_value(MI_BATTERY)
+            if debug: print ("tpot1:", tpot1, "    hrpot1: ", hrpot1, "  lum1: ", lum1, "  conduct1: ", conduct1, "  batt1: ", batt1)
+
+            if nbmi == 2:
+                poller2 = MiFloraPoller(mi_mac2, BluepyBackend)
+                tpot2 = poller.parameter_value(MI_TEMPERATURE) - 0.8
+                hrpot2 = poller.parameter_value(MI_MOISTURE)
+                lum2 = poller.parameter_value(MI_LIGHT)
+                conduct2 = poller.parameter_value(MI_CONDUCTIVITY)
+                batt2 = poller.parameter_value(MI_BATTERY)
+                if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
+            else:
+                (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0)
 
             # Insertion des données
-            insert_data(maintenant, tint, hrint, tpot, hrpot, lumiere, conductivite, batterie, vpd)
+            insert_data(maintenant, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
             if debug: print ("Donnees inserees")
 
         except Exception as e:
