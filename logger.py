@@ -54,6 +54,7 @@ dht_device = adafruit_dht.DHT22(board.D4)
 
 # Demarrage
 print("Debug: ", debug)
+print("nbmi: ", nbmi)
 if nbmi == 1:
     print("Un capteur")
 elif nbmi == 2:
