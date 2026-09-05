@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/plants
-ExecStart=/home/pi/plants/venv/bin/python /home/pi/plants/logger.py
+ExecStart=/home/pi/plants/venv/bin/python /home/pi/plants/logger.py > /home/pi/plants/plants.log 2>&1
 Restart=always
 RestartSec=10
 
