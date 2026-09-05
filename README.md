@@ -76,5 +76,14 @@ sudo systemctl start plants.service
 # Dashboard
 ## Grafana installation
 https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
-## Metadata dashboard
+
+It is strongly advised to setup https for grafana: https://grafana.com/docs/grafana/latest/setup-grafana/set-up-https/
+
+Datasource creation to postgres db: https://grafana.com/docs/grafana/latest/datasources/postgres/configure/
+=> consider the db already exists
+
+## Dashboard example
+
+## MetaData
+
 ## Image link to capture
