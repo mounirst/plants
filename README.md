@@ -36,7 +36,7 @@ Comes with raspberry os
 ```
 sudo apt install postgresql
 ```
-Influxdb possibly more performant
+Timeseries database engine InfluxDB might be best choice for performance.
 
 ## populate
 ```
