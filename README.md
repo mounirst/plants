@@ -88,6 +88,4 @@ In case of multiple monitoring platforms, you may want to customize login_cookie
 
 ![Grafana capture](/Capt0.jpg?raw=true "grafana capture")
 
-## MetaData
 
-## Image link to capture
