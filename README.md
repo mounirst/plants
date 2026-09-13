@@ -88,6 +88,4 @@ In case of multiple monitoring platforms, you may want to customize login_cookie
 
 Dashboard code [here](exemple-grafana.json)
 
-![Grafana capture](/Capt0.jpg?raw=true "grafana capture")
-
-
+![Grafana capture](/capt1.jpg?raw=true "grafana capture")
