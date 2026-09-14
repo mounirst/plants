@@ -80,17 +80,17 @@ def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, h
         print(f"Erreur lors de l'insertion des données : {e}")
         exit(-1)
 
-# Boucle principale
 def main():
     iteration = 0
     if debug: print("Nouvelle instance - pid: ", os.getpid())
+    
+    # process a durre limitee car fuite memoire lib miflora
     while iteration < 200:
         try:
             # Maintenant
             maintenant = datetime.datetime.now(datetime.timezone.utc)
-            print ("")
-            print ("Iteration: ", iteration)
-            print("Maintenant: ", maintenant)
+            print("")
+            print("Iteration: ", iteration, "Maintenant: ", maintenant)
 
             # Lecture du capteur DHT22
             tint = dht_device.temperature + 0.8
@@ -121,18 +121,28 @@ def main():
                 conduct2 = poller2.parameter_value(MI_CONDUCTIVITY)
                 batt2 = poller2.parameter_value(MI_BATTERY)
             else:
-                (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0)
+                (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0) # il faut quand meme choisir des valeurs
             if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
 
             # Insertion des données
             insert_data(maintenant, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
             if debug: print ("Donnees inserees")
 
+            # 5 minutes entre 2 captures reussies
+            time.sleep(300)
+
         except Exception as e:
             print(f"Erreur lors de la lecture des capteurs : {e}")
 
+            # 2 minutes après une capture ratee
+            time.sleep(120)
+
+        
         iteration += 1
-        time.sleep(300)  # 5 minutes
+        
+    
+    # fin normale des iterations
+    print("Fin du logger")
 
 if __name__ == "__main__":
     main()
