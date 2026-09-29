@@ -121,7 +121,7 @@ def main():
                 conduct2 = poller2.parameter_value(MI_CONDUCTIVITY)
                 batt2 = poller2.parameter_value(MI_BATTERY)
             else:
-                (tpot2, hrpot2, lum2, conduct2, batt2) = (22, 55, 0, 0, 0) # il faut quand meme choisir des valeurs
+                (tpot2, hrpot2, lum2, conduct2, batt2) = (tpot1, hrpot1, lum1, conduct1, batt1)
             if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
 
             # Insertion des données
