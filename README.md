@@ -70,6 +70,12 @@ sudo systemctl enable plants.service
 sudo systemctl start plants.service
 ```
 
+## troubleshouting
+Logger messages are logged in system journal
+```
+sudo journalctl -r -u plants
+```
+
 # Camera capture
 ## Confirm camera operation
 ## Capture script
