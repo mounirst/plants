@@ -92,6 +92,6 @@ In case of multiple monitoring platforms, you may want to customize login_cookie
 
 ## Dashboard example
 
-Dashboard code [here](exemple-grafana.json)
+Dashboard code [here](exemple-grafana.json) copy/paste this url in grafana "Import dashboard" menu
 
 ![Grafana capture](/capt1.jpg?raw=true "grafana capture")
