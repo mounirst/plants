@@ -8,6 +8,7 @@ CREATE DATABASE plants;
 CREATE TABLE capteurs (
     id SERIAL PRIMARY KEY,
     tsz TIMESTAMP with time zone NOT NULL,
+    grsp TEXT,
     tint FLOAT,
     hrint FLOAT,
     tpot1 FLOAT,
