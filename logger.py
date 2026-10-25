@@ -35,7 +35,7 @@ config.read('/home/pi/plants/config.ini')
 # Parametres generaux
 debug = bool(config['general']['debug'])
 grsp = config['general']['growspace']
-if not grsp: # si grsp n est pas affecte on cree un uuid sur 8 caracteres
+if grsp == "": # si grsp n est pas affecte on cree un uuid sur 8 caracteres
     grsp = str(uuid.uuid1())[1:8]
 
 # Paramètres de la base de données
