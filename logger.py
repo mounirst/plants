@@ -7,6 +7,7 @@ import board
 import os
 import math
 import adafruit_dht
+import uuid
 
 # pour miflora
 import re
@@ -33,6 +34,9 @@ config.read('/home/pi/plants/config.ini')
 
 # Parametres generaux
 debug = bool(config['general']['debug'])
+grsp = config['general']['growspace']
+if not grsp: # si grsp n est pas affecte on cree un uuid sur 8 caracteres
+    grsp = str(uuid.uuid1())[1:8]
 
 # Paramètres de la base de données
 db_config = {
@@ -64,15 +68,15 @@ else:
     exit(-1)
 
 # Fonction pour insérer les données dans la base
-def insert_data(tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd):
+def insert_data(tsz, grsp, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd):
     try:
         conn = psycopg2.connect(**db_config)
         cursor = conn.cursor()
         query = """
-        INSERT INTO capteurs (tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO capteurs (tsz, grsp, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        cursor.execute(query, (tsz, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd))
+        cursor.execute(query, (tsz, grsp, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd))
         conn.commit()
         cursor.close()
         conn.close()
@@ -91,6 +95,7 @@ def main():
             maintenant = datetime.datetime.now(datetime.timezone.utc)
             print("")
             print("Iteration: ", iteration, "Maintenant: ", maintenant)
+            print("Growspace: ", grsp)
 
             # Lecture du capteur DHT22
             tint = dht_device.temperature + 0.8
@@ -125,7 +130,7 @@ def main():
             if debug: print ("tpot2:", tpot2, "    hrpot2: ", hrpot2, "  lum2: ", lum2, "  conduct2: ", conduct2, "  batt2: ", batt2)
 
             # Insertion des données
-            insert_data(maintenant, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
+            insert_data(maintenant, grsp, tint, hrint, tpot1, hrpot1, lum1, conduct1, batt1, tpot2, hrpot2, lum2, conduct2, batt2, vpd)
             if debug: print ("Donnees inserees")
 
             # 5 minutes entre 2 captures reussies
