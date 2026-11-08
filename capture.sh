@@ -42,7 +42,7 @@ do
     sleep $INTERVALLE
 done
 
-# Purge des images de plus de 180 jours
+# Purge des images de plus de 6 mois
 echo find "$REP" -type f -mtime +180 -delete
 find "$REP" -name "*.jpeg" -type f -mtime +180 -delete
 
