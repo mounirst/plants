@@ -19,7 +19,7 @@ dtparam=pwr_led_trigger=none
 ### minimum system package
 ```
 sudo apt install locales-all swig vim git
-sudo apt install libglib2.0-dev liblgpio-dev
+sudo apt install libglib2.0-dev liblgpio-dev python3-dev
 ```
 
 ### Bluetooth permissions
