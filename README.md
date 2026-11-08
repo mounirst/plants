@@ -73,7 +73,11 @@ sudo systemctl start plants.service
 ```
 
 ## troubleshouting
-Logger messages are logged in system journal.
+Check manual startup for errors
+```
+/home/pi/plants/venv/bin/python /home/pi/plants/logger.py
+```
+Logger messages are logged in system journal
 ```
 sudo journalctl -r -u plants
 ```
