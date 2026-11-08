@@ -5,7 +5,7 @@ REP="/home/pi/plants/images"
 mkdir -p $REP
 
 # Compteur d'itérations
-ITERATIONS=0
+ITERATION=0
 MAX_ITERATIONS=100
 
 # Entre chaque photo en secondes
@@ -17,7 +17,7 @@ LAST_IMAGE="$REP/last-image.jpeg"
 {
 
 # Boucle principale
-while [ $ITERATIONS -lt $MAX_ITERATIONS ]
+while [ $ITERATION -lt $MAX_ITERATIONS ]
 do
 	datejour=$(date --iso-8601)
 	datemin=$(date --iso-8601=minutes)
@@ -36,7 +36,7 @@ do
 	sudo cp $IMG /usr/share/grafana/public/img/capture-last.jpeg
 
     # Incrémentation du compteur
-    ((ITERATIONS++))
+    ((ITERATION++))
 
     # Attente entre chaque photo
     sleep $INTERVALLE
