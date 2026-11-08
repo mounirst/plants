@@ -94,6 +94,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable capture.service
 sudo systemctl start capture.service
 ```
+Pictures are stored in images subdir and purged after 6 months by default.
 ## Grafana image update
 It cannot occur depending on browser configuration. If required force browser cache update.
 Pictures are captured in images subdirectory with a link on last capture and a copy in /usr/share/grafana/public/img.
