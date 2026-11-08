@@ -58,7 +58,9 @@ Check file plants.sql for customization.
 ```
 sudo -u postgres psql -f plants.sql
 ```
-
+sudo systemctl daemon-reload
+sudo systemctl enable plants.service
+sudo systemctl start plants.service
 
 ## systemd activation
 Check file config.ini for password and miflora mac address customization.
@@ -71,14 +73,30 @@ sudo systemctl start plants.service
 ```
 
 ## troubleshouting
-Logger messages are logged in system journal
+Logger messages are logged in system journal.
 ```
 sudo journalctl -r -u plants
 ```
 
 # Camera capture
 ## Confirm camera operation
+Camera already enabled in Bookworn and Trixie.
+```
+rpicam-still -o test.jpg
+```
 ## Capture script
+Set MAX_ITERATIONS to capture images and then stop. Restart is trigered by capture.service.
+Set INTERVALLE seconds between each capture.
+Install capture.service
+```
+sudo cp capture.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable capture.service
+sudo systemctl start capture.service
+```
+## Grafana image update
+It cannot occur depending on browser configuration. If required force browser cache update.
+Pictures are captured in images subdirectory with a link on last capture and a copy in /usr/share/grafana/public/img.
 # Dashboard
 ## Grafana installation
 https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
