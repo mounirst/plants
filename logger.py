@@ -98,7 +98,7 @@ def main():
             print("Growspace: ", grsp)
 
             # Lecture du capteur DHT22
-            tint = dht_device.temperature + 0.8
+            tint = dht_device.temperature
             hrint = dht_device.humidity
             if debug: print ("tint: ", tint, "    hrint: ", hrint)
 
