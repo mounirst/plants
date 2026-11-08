@@ -1,0 +1,14 @@
+[Unit]
+Description=Service de capture d'images
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/plants
+ExecStart=/bin/bash /home/pi/plants/capture.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
