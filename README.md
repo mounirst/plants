@@ -25,7 +25,7 @@ sudo apt install libglib2.0-dev liblgpio-dev
 ### Bluetooth permissions
 Unblocking acces to bluetooth may be required
 ```
-rfkill unblock all
+sudo rfkill unblock all
 ```
 
 ### python
