@@ -9,7 +9,7 @@ ITERATION=0
 MAX_ITERATIONS=100
 
 # Entre chaque photo en secondes
-INTERVALLE=900 # 15mn
+INTERVALLE=3600 # 1h
 
 # Lien symbolique pour la dernière image
 LAST_IMAGE="$REP/last-image.jpeg"
