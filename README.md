@@ -118,3 +118,9 @@ In case of multiple monitoring platforms, you may want to customize login_cookie
 Dashboard code [here](exemple-grafana.json) copy/paste this url in grafana "Import dashboard" menu
 
 ![Grafana capture](/capt1.jpg?raw=true "grafana capture")
+# Divers
+## public IP
+With Google dns
+```
+dig -4 TXT  +short o-o.myaddr.l.google.com @ns1.google.com
+```
