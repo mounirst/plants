@@ -37,7 +37,7 @@ Comes with raspberry os
 sudo apt install postgresql
 ```
 Timeseries database engine InfluxDB might be best choice for performance.
-
+On remote operation: hostssl all all samenet password
 ## populate
 ```
 git clone https://github.com/mounirst/plants.git
@@ -58,9 +58,6 @@ Check file plants.sql for customization.
 ```
 sudo -u postgres psql -f plants.sql
 ```
-sudo systemctl daemon-reload
-sudo systemctl enable plants.service
-sudo systemctl start plants.service
 
 ## systemd activation
 Check file config.ini for password and miflora mac address customization.
@@ -83,12 +80,13 @@ sudo journalctl -r -u plants
 ```
 
 # Camera capture
-## Confirm camera operation
+Configure section images in config.ini
+## confirm camera operation
 Camera already enabled in Bookworn and Trixie.
 ```
 rpicam-still -o test.jpg
 ```
-## Capture script
+## capture script
 Set MAX_ITERATIONS to capture images and then stop. Restart is trigered by capture.service.
 Set INTERVALLE seconds between each capture.
 Install capture.service
@@ -99,7 +97,7 @@ sudo systemctl enable capture.service
 sudo systemctl start capture.service
 ```
 Pictures are stored in images subdir and purged after 6 months by default.
-## Grafana image update
+## grafana image update
 It cannot occur depending on browser configuration. If required force browser cache update.
 Pictures are captured in images subdirectory with a link on last capture and a copy in /usr/share/grafana/public/img.
 # Dashboard
